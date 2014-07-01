@@ -1,0 +1,33 @@
+{
+  "name": "WiMP-api",
+  "version": "0.0.1",
+  "description": "Unofficial WiMP API\r ====================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/datagutt/WiMP-api.git"
+  },
+  "keywords": [
+    "wimp",
+    "streaming",
+    "music"
+  ],
+  "author": "datagutt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/datagutt/WiMP-api/issues"
+  },
+  "homepage": "https://github.com/datagutt/WiMP-api",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "qs": "^0.6.6",
+    "superagent": "^0.18.0"
+  },
+  "devDependencies": {
+    "lame": "~1.0.1",
+    "speaker": "~0.0.6"
+  }
+}
