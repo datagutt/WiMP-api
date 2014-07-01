@@ -9,12 +9,12 @@ WiMP.login(username, password, function(err, wimp){
 	wimp.getTracks(albumId, function(err, tracks){
 		var track = tracks[0];
 		console.log('Playing: %s - %s', track.artist.name, track.title);
-		track
-		.play()
+		track.play()
 		.pipe(new lame.Decoder())
  		.pipe(new Speaker())
  		.on('finish', function (){
- 			wimp.disconnect();
+ 			console.log('Song finished');
  		});
+		console.log(track.requestStreamUrl());
 	})
 });
