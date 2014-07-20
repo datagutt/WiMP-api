@@ -22,14 +22,15 @@
   },
   "homepage": "https://github.com/datagutt/WiMP-api",
   "dependencies": {
-    "fluent-ffmpeg": "^1.7.2",
+    "fluent-ffmpeg": "^2.0.0-rc1",
     "lodash": "^2.4.1",
     "qs": "^0.6.6",
+    "speaker": "^0.2.0",
     "superagent": "^0.18.0"
   },
   "devDependencies": {
     "async": "^0.9.0",
-    "lame": "~1.0.1",
-    "speaker": "~0.0.6"
+    "lame": "^1.1.0",
+    "speaker": "^0.2.1"
   }
 }
