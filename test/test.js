@@ -5,21 +5,19 @@ var albumId = 0;
 var doLogin = function(done){
 	var username = process.env.UN;
 	var password = process.env.PW;
-	return function(done){
-		console.log('lol');
-		wimp.login(username, password, function(_this){
-			return function(err, wimp){
-				_this.wimp = wimp;
-				console.log(wimp, _this);
-				return done();
-			};
-		})(this);
-	};
+	wimp.login(username, password, function(err, wimp){	console.log(username, password);
+
+		this.wimp = wimp;
+		console.log(wimp, this);
+		return done(wimp);
+	});
 }
+doLogin(function(wimp){
+
 describe('WiMP', function(){
 	beforeEach(doLogin);
 	describe('#getArtist()', function(){
-		var wimp = this.wimp;
+		var wimp = wimp;
 		wimp.getArtist(artistId, function(artist){
 			it('should return the correct artist', function(){
 				assert(artist.id, artistId);
@@ -29,13 +27,15 @@ describe('WiMP', function(){
 	});
 
 	describe('#getAlbum()', function(){
-		var wimp = this.wimp;
+		var wimp = wimp;
 		wimp.getAlbum(albumId, function(albums){
-			it('should returncorrect the album', function(){
+			it('should return the correct album', function(){
 				assert(album.id, albumId);
 				assert(album.name, 'Hvitmalt Gjerde');
 				assert(album.artist.name, 'Hvitmalt Gjerde');
 			});
 		});
 	});
+});
+
 });

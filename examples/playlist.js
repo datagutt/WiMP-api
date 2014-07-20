@@ -2,8 +2,8 @@ var lame = require('lame');
 var Speaker = require('speaker');
 var async = require('async');
 var WiMP = require('../index');
-var username = process.env.USERNAME;
-var password = process.env.PASSWORD;
+var username = process.env.UN;
+var password = process.env.PW;
 WiMP.login(username, password, function(err, wimp){
 	wimp.getPlaylists(function(err, playlists){
 		var playlist = playlists[0];
