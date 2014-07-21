@@ -5,8 +5,7 @@ var WiMP = require('../index');
 var username = process.env.UN;
 var password = process.env.PW;
 WiMP.login(username, password, function(err, wimp){
-	console.log(err, wimp);
-	wimp.getPlaylists(function(err, playlists){
+	wimp.getPlaylists(wimp.user.id, function(err, playlists){
 		var playlist = playlists[0];
 		playlist.getTracks(function(err, tracks){
 			tracks.sort(function(){
