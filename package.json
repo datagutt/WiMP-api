@@ -1,5 +1,5 @@
 {
-  "name": "WiMP-api",
+  "name": "wimp-api",
   "version": "0.0.1",
   "description": "Unofficial WiMP API\r ====================",
   "main": "index.js",
