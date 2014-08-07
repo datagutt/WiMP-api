@@ -15,7 +15,6 @@ WiMP.login(username, password, function(err, wimp){
 			.on('finish', function (){
 				console.log('Song finished');
 			});
-			console.log(track.requestStreamUrl());
 		});
 	});
 });
