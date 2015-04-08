@@ -1,18 +1,15 @@
 var lame = require('lame');
 var Speaker = require('speaker');
-var async = require('async');
 var WiMP = require('../index');
+var async = require('async');
 var username = process.env.UN;
 var password = process.env.PW;
 WiMP.login(username, password, function(err, wimp){
-	wimp.getUserPlaylists(function(err, playlists){
-		var playlist = playlists[0];
-		console.log(playlist);
-		console.log('User playlist: %s', playlist.title);
+	wimp.getFeatured(function(err, featured){
+		//console.log(err, featured);
+		var playlist = featured[0];
+		console.log('Featured playlist: %s', playlist.name);
 		playlist.getTracks(function(err, tracks){
-			tracks.sort(function(){
-				return .5 - Math.random();
-			});
 			async.eachSeries(tracks, 
 				function(track, callback){
 					console.log('Playing: %s - %s', track.artist.name, track.title);
@@ -28,5 +25,5 @@ WiMP.login(username, password, function(err, wimp){
 				}
 			);
 		});
-	});			
+	});
 });
