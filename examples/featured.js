@@ -12,7 +12,7 @@ WiMP.login(username, password, function(err, wimp){
 		playlist.getTracks(function(err, tracks){
 			async.eachSeries(tracks, 
 				function(track, callback){
-					console.log('Playing: %s - %s', track.artist.name, track.title);
+					console.log('Playing: %s - %s', track.artist.name, track.name);
 					track.play()
 					.pipe(new lame.Decoder())
 			 		.pipe(new Speaker())

@@ -8,14 +8,14 @@ WiMP.login(username, password, function(err, wimp){
 	wimp.getUserPlaylists(function(err, playlists){
 		var playlist = playlists[0];
 		console.log(playlist);
-		console.log('User playlist: %s', playlist.title);
+		console.log('User playlist: %s', playlist.name);
 		playlist.getTracks(function(err, tracks){
 			tracks.sort(function(){
 				return .5 - Math.random();
 			});
 			async.eachSeries(tracks, 
 				function(track, callback){
-					console.log('Playing: %s - %s', track.artist.name, track.title);
+					console.log('Playing: %s - %s', track.artist.name, track.name);
 					track.play()
 					.pipe(new lame.Decoder())
 			 		.pipe(new Speaker())

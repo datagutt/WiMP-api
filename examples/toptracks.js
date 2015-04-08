@@ -9,7 +9,7 @@ WiMP.login(username, password, function(err, wimp){
 		var artist = artists[0];
 		artist.getTopTracks(function(err, tracks){
 			var track = tracks[0];
-			console.log('Playing: %s - %s', track.artist.name, track.title);
+			console.log('Playing: %s - %s', track.artist.name, track.name);
 			track.play()
 			.pipe(new lame.Decoder())
 			.pipe(new Speaker())
